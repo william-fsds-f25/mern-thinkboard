@@ -107,4 +107,4 @@ The note model includes at least:
 
 ## Link to access
 
-[ISC](https://mern-thinkboard-cf0r.onrender.com/)
+[mern-thinkboard](https://mern-thinkboard-cf0r.onrender.com/)

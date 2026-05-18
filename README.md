@@ -105,6 +105,6 @@ The note model includes at least:
 - If the backend cannot find `frontend/dist/index.html`, build the frontend first with `npm run build --prefix frontend`.
 - If MongoDB connection fails, verify your connection string in `backend/src/config/db.js` or `backend/.env`.
 
-## License
+## Link to access
 
-ISC
+[ISC](https://mern-thinkboard-cf0r.onrender.com/)

@@ -15,6 +15,7 @@ A full-stack MERN note-taking application with a React + Vite frontend, Express 
 - Express API with RESTful endpoints under `/api/notes`
 - MongoDB via Mongoose
 - Basic rate limiting middleware in the backend
+- Tailwind CSS + DaisyUI theme support for frontend styling
 
 ## Prerequisites
 
@@ -35,6 +36,8 @@ npm install --prefix frontend
 ### Environment
 
 The backend uses MongoDB. Update the connection settings in `backend/src/config/db.js` or replace it with an environment variable in your own version.
+
+The frontend uses Tailwind CSS with DaisyUI. The DaisyUI plugin is configured in `frontend/tailwind.config.js`, and the styles are loaded from `frontend/src/index.css`.
 
 If you prefer environment variables, create `backend/.env` and add:
 

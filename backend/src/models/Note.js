@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 // Steps
 // 1- Create a schema
@@ -22,4 +22,4 @@ const noteSchema = new mongoose.Schema(
 
 const Note = mongoose.model("Note",noteSchema);
 
-export default Note
+module.exports = Note;

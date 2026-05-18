@@ -3,6 +3,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const path = require("path");
 
 
 const notesRoutes = require("./routes/notesRoutes");
@@ -19,16 +20,22 @@ const app = express();
 const PORT = process.env.PORT || 5001
 
 //middleware: function that runs in the middle between the request and the response
-app.use(
+
+if (process.env.NODE_ENV !== "production") {
+    app.use(
     cors({
         origin: "http://localhost:5173",
     })
-); // Allow request to every single url
+    ); // Allow request to every single url
+
+}
+
+
 app.use(express.json()); // this middleware will parse JSON bodies: req.body
 app.use(rateLimiter);
 
 
-// our simple custom middleware 
+// our simple custom middleware
 // app.use((req,res,next) => {
 //     console.log(`Req method is ${req.method} & Request URL is ${req.url}`);
 //     next();
@@ -39,7 +46,21 @@ app.use(rateLimiter);
 // What is an endpoint ?
 // An endpoint is a combination of a URL + HTTP method that lets the client interact with a specific resource.
 
-app.use("/api/notes",notesRoutes);
+
+app.use("/api/notes", notesRoutes);
+
+
+if (process.env.NODE_ENV === "production") {
+    
+    app.use(express.static(path.join(__dirname, "../../frontend/dist")))
+    
+    app.get("*"), (req, res) => {
+        res.sendFile(path.join(__dirname, "../../frontend", "dist", "index.html"));
+    }
+}
+
+
+
 
 connectDB().then(()=> {
     app.listen(5001, () => {

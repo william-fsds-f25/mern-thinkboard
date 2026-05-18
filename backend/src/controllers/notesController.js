@@ -25,10 +25,10 @@
 
 } */
 
-import Note from "../models/Note.js";
+const Note = require("../models/Note.js");
 
 
-export async function getAllNotes(req,res) // or you can put an underscore (_) if there is any variables that is not going to be used
+async function getAllNotes(req,res) // or you can put an underscore (_) if there is any variables that is not going to be used
 {
     try {
 
@@ -47,7 +47,7 @@ export async function getAllNotes(req,res) // or you can put an underscore (_) i
 }
 
 
-export async function getNodeById(req,res)
+async function getNodeById(req,res)
 {
     try {
         const note = await Note.findById(req.params.id)
@@ -64,7 +64,7 @@ export async function getNodeById(req,res)
 
 }
 
-export async function createNote(req,res) {
+async function createNote(req,res) {
 
     try {
 
@@ -81,9 +81,9 @@ export async function createNote(req,res) {
 
     }
 
-};
+}
 
-export async function updateNote (req,res) {
+async function updateNote (req,res) {
 
     try {
 
@@ -107,7 +107,7 @@ export async function updateNote (req,res) {
     }
 }
 
-export async function deleteNote (req,res) {
+async function deleteNote (req,res) {
 
     try {
 
@@ -124,4 +124,6 @@ export async function deleteNote (req,res) {
 
 
 }
+
+module.exports = {getAllNotes, createNote, updateNote, deleteNote, getNodeById};
  
